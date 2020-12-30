@@ -13,12 +13,7 @@ import routes from "../routes.js";
 const userRouter = express.Router();
 
 userRouter.get(routes.editProfile, onlyPrivate, getEditProfile);
-userRouter.post(
-  `/users/${routes.editProfile}`,
-  onlyPrivate,
-  uploadAvatar,
-  postEditProfile
-);
+userRouter.post(routes.editProfile, onlyPrivate, uploadAvatar, postEditProfile);
 
 userRouter.get(routes.changePassword, onlyPrivate, getChangePassword);
 userRouter.post(routes.changePassword, onlyPrivate, postChangePassword);

@@ -108,22 +108,22 @@ export const logout = (req, res) => {
 
 export const getEditProfile = (req, res) => {
   res.render("editProfile", { pageTitle: "EditProfile" });
-  console.log(req.user);
 };
 
 export const postEditProfile = async (req, res) => {
   const {
-    body: { _id: id, name, email },
+    _id: id,
+    body: { name, email },
     file,
   } = req;
-  console.log();
   try {
-    await User.findByIdAndUpdate(req.user._id, {
+    await User.findByIdAndUpdate(req.user.id, {
       name,
       email,
       avatarUrl: file ? file.path : req.user.avatarUrl,
     });
     res.redirect(routes.me);
+    console.log(req.user);
   } catch (error) {
     res.render(routes.editProfile);
   }
@@ -163,7 +163,8 @@ export const userDetail = async (req, res) => {
     params: { id },
   } = req;
   try {
-    const user = await User.findById(id);
+    const user = await User.findById(id).populate("videos");
+    console.log(user);
     res.render("userDetail", { pageTitle: "UserDetail", user });
   } catch (error) {
     res.redirect(routes.home);
