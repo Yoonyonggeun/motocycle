@@ -1,0 +1,17 @@
+html,
+body {
+  height: 100%;
+}
+body {
+  font-family: 'Bangers', cursive;
+  color: $black;
+  font-size: 17px;
+}
+
+main {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 70vh;
+}
+

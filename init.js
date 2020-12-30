@@ -4,10 +4,12 @@ import dotenv from "dotenv";
 dotenv.config();
 import "./models/Video.js";
 import "./models/Comment.js";
-const PORT = process.env.PORT || 3000;
+import "./models/User.js";
+
+const PORT = process.env.PORT || 8000;
 
 const handleListening = () => {
-  console.log(`Listening on:http://localhost${PORT}`);
+  console.log(`Listening on:http://localhost:${PORT}`);
 };
 
 app.listen(PORT, handleListening);

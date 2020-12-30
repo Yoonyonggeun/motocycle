@@ -1,0 +1,39 @@
+.form-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  form {
+    width: 100%;
+    max-width: 320px;
+    margin-bottom: 30px;
+    input {
+      display: block;
+      width: 100%;
+      box-shadow: 5px 1px 1px 1px rgba(17, 17, 134, 0.2);
+      &:first-child{
+        margin-top: 15px;
+      }
+      &:not(:last-child){
+        margin-bottom: 15px;
+      }    
+    }
+  }
+  input[type=submit]{
+    background-color: $sky;
+    color: white;
+    border-radius: 10px;
+    &:hover{
+      background-color: purple;
+    }
+  }
+  a{
+    button{
+      background-color: $sky;
+      color: white;
+      &:hover{
+        background-color: purple;
+      }
+    }
+  }
+}
